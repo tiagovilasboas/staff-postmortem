@@ -1,0 +1,56 @@
+name: Improve template
+description: Clarify the blank form, severity gates, or a fictional example — not a real incident.
+title: "docs: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for a concrete gap in the kit. Write in English.
+        See [CONTRIBUTING.md](../../CONTRIBUTING.md).
+        Do **not** paste a real outage, firm IP, or production IDs.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Blank template (`docs/template.md`)
+        - Severity / when-to-write (`docs/severity.md`)
+        - Fictional example
+        - README map
+        - House style (AGENTS.md, CONTRIBUTING, GitHub templates)
+    validations:
+      required: true
+  - type: input
+    id: path
+    attributes:
+      label: File
+      description: Path of the doc that is wrong or thin.
+      placeholder: docs/template.md
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: Gap
+      description: What a Staff on-call cannot decide after reading the file.
+      placeholder: The template does not ask whether data was lost, so writers skip it.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed fix
+      description: Smallest change that closes the gap (one row, one rule, one sentence).
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: This is a docs change only (no real incident, no firm IP, no production IDs).
+          required: true
+        - label: Template section names stay stable if I touch `docs/template.md`.
+          required: false

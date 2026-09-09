@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: AGENTS.md line cap
+        run: test "$(wc -l < AGENTS.md)" -le 80
+
+      - name: Required files
+        run: |
+          ls LICENSE CONTRIBUTING.md AGENTS.md README.md \
+            docs/template.md docs/severity.md docs/example-short-spike.md \
+            .github/PULL_REQUEST_TEMPLATE.md \
+            .github/ISSUE_TEMPLATE/improve-template.yml \
+            .github/ISSUE_TEMPLATE/propose-example.yml
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: markdownlint
+        run: npx --yes markdownlint-cli2@0.23.2 "**/*.md"
+
+      - name: Relative markdown links exist
+        run: python3 scripts/check-md-links.py
