@@ -1,0 +1,6 @@
+---
+description: Point at the harness-agnostic agent source of truth
+alwaysApply: true
+---
+
+Read `AGENTS.md` at the repo root. It is the source of truth. Do not fork policy into this file.

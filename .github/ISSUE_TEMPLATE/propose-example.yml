@@ -1,0 +1,43 @@
+name: Propose example
+description: Suggest a new fully fictional worked incident (or a fix to the spike sample).
+title: "example: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Examples must be invented. Generic service names only (`payments-api`, `accounts-service`).
+        See [CONTRIBUTING.md](../../CONTRIBUTING.md).
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Fix the existing short-spike example
+        - New fictional example (different failure class)
+    validations:
+      required: true
+  - type: textarea
+    id: lesson
+    attributes:
+      label: Lesson
+      description: What distinction should a Staff reader leave with? (spike vs outage, primary vs latent, when to skip a formal PM, …)
+    validations:
+      required: true
+  - type: textarea
+    id: sketch
+    attributes:
+      label: Sketch
+      description: Duration, services (generic names), primary cause, secondary/latent finding. No real IDs.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: Fully fictional — no employer names, monitor IDs, user IDs, emails, or wiki paste.
+          required: true
+        - label: The sketch still fits `docs/template.md` section names.
+          required: true
