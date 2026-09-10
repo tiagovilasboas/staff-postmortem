@@ -1,21 +1,25 @@
 # staff-postmortem
 
-> Blameless Staff incident-review form. Evidence-first. Copy the template. Examples are fictional.
+> Blameless Staff incident-review form. Evidence-first. Copy the template. Harborlot fills are fictional. docs/examples composites are anonymized, not company incidents.
 
 ## Primary
 
 - [Template](docs/template.md): blank form (summary, quantified impact, UTC timeline, detection, systemic factors, what went well, SMART actions)
-- [Checkout latency example](docs/example-checkout-latency.md): dense fictional fill (constraint, decision, before/after)
-- [Short spike example](docs/example-short-spike.md): fictional ~2 min identity 502; when a short burst still gets a write-up
+- [Checkout latency example](docs/example-checkout-latency.md): dense fictional Harborlot fill
+- [Short spike example](docs/example-short-spike.md): fictional ~2 min identity 502
+- [Silent push / webhook composite](docs/examples/silent-push-webhook.md): anonymized composite, not a public company incident
+- [Examples index](docs/examples/README.md): fiction vs anonymized composite
 - [References](docs/references.md): public structure links only
 
 ## Also
 
 - [When to write](docs/when-to-write.md): severity threshold, when not to write a novel, 48-hour draft
+- [Facilitation](docs/facilitation.md): HOW / timeline-first; schedule early; learning is not an action pile
 - [Severity](docs/severity.md): Sev vs P
 - [README](README.md): map
 
 ## Related kits
 
 - https://github.com/tiagovilasboas/staff-impact-cases
+- https://github.com/tiagovilasboas/staff-impact-cases/blob/main/cases/ops-postmortems.md
 - https://github.com/tiagovilasboas/sentry-golden-path

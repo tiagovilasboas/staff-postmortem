@@ -2,7 +2,7 @@
 
 Blameless incident-review form. Evidence-first. Copy-paste ready.
 
-Staff pointer: write to the same density bar as [staff-impact-cases](https://github.com/tiagovilasboas/staff-impact-cases) (problem, constraint, decision, evidence, before/after). This repo is the review form. That repo is the career case corpus.
+Staff pointer: write to the same density bar as [staff-impact-cases](https://github.com/tiagovilasboas/staff-impact-cases) (problem, constraint, decision, evidence, before/after). This repo is the review form. That repo is the career case corpus. Ops rite: [ops-postmortems](https://github.com/tiagovilasboas/staff-impact-cases/blob/main/cases/ops-postmortems.md).
 
 Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agentic AI · AppSec · Observability
 
@@ -12,9 +12,10 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 |---|---|---|
 | 1 | [`docs/template.md`](docs/template.md) | Blank form. Fill after the incident, not during the firefight. |
 | 2 | [`docs/when-to-write.md`](docs/when-to-write.md) | Sev threshold, when not to write a novel, 48-hour draft. |
-| 3 | [`docs/severity.md`](docs/severity.md) | Sev = impact now. P = urgency of the follow-up. Do not mix them. |
-| 4 | [`docs/example-checkout-latency.md`](docs/example-checkout-latency.md) | Dense fictional checkout fill. Quantified impact, constraints, before/after. |
-| 5 | [`docs/example-short-spike.md`](docs/example-short-spike.md) | Fictional ~2 min identity 502 spike. When a short burst still gets a write-up. |
+| 3 | [`docs/facilitation.md`](docs/facilitation.md) | HOW / timeline-first. Schedule the review early. Learning is not an action pile. |
+| 4 | [`docs/severity.md`](docs/severity.md) | Sev = impact now. P = urgency of the follow-up. Do not mix them. |
+| 5 | [`docs/examples/README.md`](docs/examples/README.md) | Fiction (Harborlot) vs anonymized composite. |
+| 6 | [`docs/example-checkout-latency.md`](docs/example-checkout-latency.md) | Dense fictional checkout fill. Quantified impact, constraints, before/after. |
 
 Copy `docs/template.md` into your incident doc. Keep names generic (`payments-api`, `checkout-api`). Never paste firm IP.
 
@@ -23,8 +24,11 @@ Copy `docs/template.md` into your incident doc. Keep names generic (`payments-ap
 | Path | Role |
 |---|---|
 | [`docs/template.md`](docs/template.md) | Summary · impact · timeline · detection · contributing factors · what went well · SMART actions |
-| [`docs/example-checkout-latency.md`](docs/example-checkout-latency.md) | Worked Harborlot checkout latency (invented marketplace; not a real incident) |
-| [`docs/example-short-spike.md`](docs/example-short-spike.md) | Worked Harborlot identity spike (invented; teaches spike vs novel) |
+| [`docs/facilitation.md`](docs/facilitation.md) | HOW questions, timeline first, early calendar, learning vs ticket pile |
+| [`docs/examples/README.md`](docs/examples/README.md) | Fiction vs anonymized composite |
+| [`docs/example-checkout-latency.md`](docs/example-checkout-latency.md) | Harborlot checkout latency (invented marketplace) |
+| [`docs/example-short-spike.md`](docs/example-short-spike.md) | Harborlot identity spike (invented; spike vs novel) |
+| [`docs/examples/silent-push-webhook.md`](docs/examples/silent-push-webhook.md) | Anonymized composite: silent push + webhook ACK-before-persist |
 | [`docs/when-to-write.md`](docs/when-to-write.md) | Threshold, skip rules, 48-hour draft |
 | [`docs/severity.md`](docs/severity.md) | Sev1-Sev4 and P0-P3 |
 | [`docs/references.md`](docs/references.md) | Public structure links only |
@@ -42,7 +46,7 @@ Copy `docs/template.md` into your incident doc. Keep names generic (`payments-ap
 
 This repo is the review form. Siblings are scoped kits, not a vendor runbook.
 
-- [staff-impact-cases](https://github.com/tiagovilasboas/staff-impact-cases): anonymized Staff cases; same density bar (before/after, constraints).
+- [staff-impact-cases](https://github.com/tiagovilasboas/staff-impact-cases): anonymized Staff cases; same density bar (before/after, constraints). Ops rite: [ops-postmortems](https://github.com/tiagovilasboas/staff-impact-cases/blob/main/cases/ops-postmortems.md).
 - [sentry-golden-path](https://github.com/tiagovilasboas/sentry-golden-path): error/tracing golden path (fill telemetry gaps here, not product IDs).
 - [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai): curated HITL / ops / AppSec links. Decision filter, not an incident log.
 - [agent-measurement](https://github.com/tiagovilasboas/agent-measurement): evals with named metrics, instance rows. Measure; do not train.
