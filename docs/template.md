@@ -2,7 +2,7 @@
 
 Copy this file. Fill it **after** mitigation, not during the firefight. Blameless: describe systems, signals, and incentives, not who to punish.
 
-When a formal write-up is required vs skippable: [`when-to-write.md`](when-to-write.md). Sev vs P: [`severity.md`](severity.md). Dense fictional fill: [`example-checkout-latency.md`](example-checkout-latency.md). Short-spike fill: [`example-short-spike.md`](example-short-spike.md).
+When a formal write-up is required vs skippable: [`when-to-write.md`](when-to-write.md). Sev vs P: [`severity.md`](severity.md). How to run the review: [`facilitation.md`](facilitation.md). Worked fills: [`examples/README.md`](examples/README.md).
 
 Replace every `<!-- prompt -->` block. Prefer `unknown` + an evidence gap over a guessed story.
 
