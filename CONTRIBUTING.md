@@ -7,29 +7,29 @@ Contributing language for this file, issue forms, and pull requests is **English
 ```text
 docs/template.md
 docs/severity.md
+docs/when-to-write.md
+docs/facilitation.md
+docs/example-checkout-latency.md
 docs/example-short-spike.md
+docs/examples/README.md
+docs/examples/silent-push-webhook.md
+docs/references.md
+llms.txt
 ```
 
 Propose changes through issues and pull requests. Do not commit to `main`.
 
 ## What belongs here
 
-- Clearer prompts in the blank template (one extra row, one missing question — not a new framework).
+- Clearer prompts in the blank template (one extra row, one missing question, not a new framework).
 - Sharper Sev / P guidance, including when a formal write-up is skippable.
-- Fictional worked examples that teach a distinction (spike vs outage, primary vs latent).
+- Worked examples that teach a distinction (spike vs outage, primary vs latent, constraint vs decision): Harborlot fiction or a labeled anonymized composite.
 
 This repo is **not** a company playbook, an observability vendor SDK, or a dump of real tickets. Do not add Datadog JSON, PagerDuty service IDs, or internal wiki paste.
 
 ## Quality bar
 
-Keep the kit **short, copy-pasteable, and evidence-first**. Public SRE materials we treat as pattern refs, not dependencies:
-
-| Pattern | What to keep in our docs |
-|---|---|
-| [Google SRE — postmortem culture](https://sre.google/sre-book/postmortem-culture/) | Blameless. Fix the system. Write so the next on-call can act. |
-| [SRE workbook — example](https://sre.google/workbook/postmortem-culture/) | Timeline with clocks. Impact in user terms. Actions with owners. |
-| [PagerDuty after-incident](https://response.pagerduty.com/after/post_mortem_process/) | Facilitate learning. Separate the review from the firefight. |
-| [Learning from Incidents](https://www.learningfromincidents.io/) | Ask what made the failure possible, not who to blame. |
+Keep the kit **short, copy-pasteable, and evidence-first**. Public structure we treat as pattern refs, not dependencies: [`docs/references.md`](docs/references.md). Density bar for a filled example matches [staff-impact-cases](https://github.com/tiagovilasboas/staff-impact-cases) (problem, constraint, decision, evidence, before/after).
 
 A useful change is **concrete**: one checklist item, one severity rule, one sentence in the example that a Staff reader would otherwise miss.
 
@@ -38,26 +38,32 @@ A useful change is **concrete**: one checklist item, one severity rule, one sent
 `docs/template.md` is the contract. Keep these sections, in this order:
 
 1. Summary table (date, severity, duration, services, root cause, data loss?)
-2. Timeline
-3. What happened
-4. Root cause (primary / secondary)
-5. Evidence checklist
-6. Impact
-7. Actions (owner / urgency / status)
-8. Follow-ups
-9. Conclusion Q&A
+2. Impact (quantified placeholders)
+3. Timeline (UTC)
+4. Detection
+5. What happened (constraint + decision in the prose)
+6. Root cause (primary / secondary / what it was not)
+7. Contributing factors (systemic)
+8. What went well
+9. Evidence checklist
+10. Actions (SMART: owner, due, mitigative vs preventative, P, status)
+11. Follow-ups
+12. Conclusion Q&A
 
-Do not rename sections for house style. Callers grep these headings. Prompts under a heading may get denser; do not add a parallel template file.
+Do not rename sections for house style. Callers and CI grep these headings (`scripts/check-required-headings.py`). Prompts under a heading may get denser; do not add a parallel template file.
 
-## How to change severity
+## How to change severity or the write gate
 
-`docs/severity.md` owns Sev (incident impact) and P (action urgency). If you change a gate (“formal PM required when…”), update the example so the two docs still agree.
+`docs/severity.md` owns Sev (incident impact) and P (action urgency). `docs/when-to-write.md` owns the artifact gate (threshold, skip, 48-hour draft). If you change a gate, update the Harborlot fills and the composite so the docs still agree.
 
 ## How to add or edit an example
 
-Examples must be **fully fictional**. Allowed: invented marketplace names, generic services (`payments-api`, `accounts-service`, `identity-gateway`). Forbidden: real employers, real users, real monitor IDs, production SQL, copy from any company wiki.
+Two kinds. See [`docs/examples/README.md`](docs/examples/README.md).
 
-Label the file as fictional in the first paragraph. Teach at least one distinction (for example spike vs outage, or primary failure vs latent bug).
+- **Fiction:** invented marketplace (Harborlot), generic services (`payments-api`, `checkout-api`). Label fictional in the first paragraph.
+- **Anonymized composite:** real-shaped class (silent push, webhook) under `docs/examples/`. Line one must say it is **not** a public company incident and **not** a named employer.
+
+Forbidden in both: real employers, real users, real monitor IDs, production SQL, copy from any company wiki. Teach at least one distinction. Dense fills need a before/after table (Result / Target / Qualitative).
 
 ## Pull requests
 
@@ -67,7 +73,14 @@ Label the file as fictional in the first paragraph. Teach at least one distincti
 
 ```bash
 test "$(wc -l < AGENTS.md)" -le 80
-ls LICENSE CONTRIBUTING.md docs/template.md docs/severity.md docs/example-short-spike.md
+python3 scripts/check-required-headings.py
+python3 scripts/check-related-link.py
+python3 scripts/check-md-links.py
+ls LICENSE CONTRIBUTING.md docs/template.md docs/severity.md \
+  docs/when-to-write.md docs/facilitation.md \
+  docs/example-checkout-latency.md docs/example-short-spike.md \
+  docs/examples/README.md docs/examples/silent-push-webhook.md \
+  docs/references.md llms.txt
 ```
 
 ## Principles (do / don't)
@@ -76,14 +89,15 @@ ls LICENSE CONTRIBUTING.md docs/template.md docs/severity.md docs/example-short-
 
 - Stay blameless. Name systems, missing alerts, and incentives.
 - Prefer `unknown` over a guessed root cause.
-- Give actions an owner, a P-level, and a status.
+- Give actions an owner, a due date, a type (mitigative vs preventative), a P-level, and a status.
 - Keep README a map. Keep `AGENTS.md` ≤80 lines as the agent source of truth.
+- Do not use an em dash.
 
 **Don't**
 
 - Mix Sev and P.
 - Add a Purpose / Propósito section to the README.
-- Paste firm IP or a real incident, even “anonymized” if the IDs are still real.
+- Paste firm IP or a real incident. A composite is allowed only when IDs are invented and the file says so.
 - Grow a manifesto. KISS / YAGNI: one extra sentence that a reviewer can use, or delete it.
 
 ## License

@@ -15,7 +15,10 @@ body:
       label: Kind
       options:
         - Fix the existing short-spike example
+        - Fix the checkout-latency example
+        - Fix the silent-push webhook composite
         - New fictional example (different failure class)
+        - New anonymized composite (labeled; not a company incident)
     validations:
       required: true
   - type: textarea
@@ -37,7 +40,7 @@ body:
     attributes:
       label: Before submitting
       options:
-        - label: Fully fictional — no employer names, monitor IDs, user IDs, emails, or wiki paste.
+        - label: Fully fictional: no employer names, monitor IDs, user IDs, emails, or wiki paste.
           required: true
         - label: The sketch still fits `docs/template.md` section names.
           required: true
