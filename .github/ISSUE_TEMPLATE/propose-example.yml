@@ -15,6 +15,7 @@ body:
       label: Kind
       options:
         - Fix the existing short-spike example
+        - Fix the checkout-latency example
         - New fictional example (different failure class)
     validations:
       required: true
@@ -37,7 +38,7 @@ body:
     attributes:
       label: Before submitting
       options:
-        - label: Fully fictional — no employer names, monitor IDs, user IDs, emails, or wiki paste.
+        - label: Fully fictional: no employer names, monitor IDs, user IDs, emails, or wiki paste.
           required: true
         - label: The sketch still fits `docs/template.md` section names.
           required: true

@@ -2,4 +2,4 @@ blank_issues_enabled: true
 contact_links:
   - name: Sister repos
     url: https://github.com/tiagovilasboas/awesome-agentic-ai
-    about: Curated HITL / ops / AppSec links — do not paste catalogs or real incidents into this template repo.
+    about: Curated HITL / ops / AppSec links. Do not paste catalogs or real incidents into this template repo.

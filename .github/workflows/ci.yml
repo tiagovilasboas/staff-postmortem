@@ -16,8 +16,11 @@ jobs:
 
       - name: Required files
         run: |
-          ls LICENSE CONTRIBUTING.md AGENTS.md README.md \
-            docs/template.md docs/severity.md docs/example-short-spike.md \
+          ls LICENSE CONTRIBUTING.md AGENTS.md README.md llms.txt \
+            docs/template.md docs/severity.md docs/when-to-write.md \
+            docs/example-short-spike.md docs/example-checkout-latency.md \
+            docs/references.md \
+            scripts/check-required-headings.py \
             .github/PULL_REQUEST_TEMPLATE.md \
             .github/ISSUE_TEMPLATE/improve-template.yml \
             .github/ISSUE_TEMPLATE/propose-example.yml
@@ -27,6 +30,9 @@ jobs:
           node-version: "22"
       - name: markdownlint
         run: npx --yes markdownlint-cli2@0.23.2 "**/*.md"
+
+      - name: Required headings in template and examples
+        run: python3 scripts/check-required-headings.py
 
       - name: Relative markdown links exist
         run: python3 scripts/check-md-links.py

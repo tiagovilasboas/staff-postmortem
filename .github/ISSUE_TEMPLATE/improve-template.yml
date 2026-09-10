@@ -1,5 +1,5 @@
 name: Improve template
-description: Clarify the blank form, severity gates, or a fictional example — not a real incident.
+description: Clarify the blank form, severity gates, or a fictional example; not a real incident.
 title: "docs: "
 labels:
   - documentation
@@ -16,7 +16,8 @@ body:
       label: Area
       options:
         - Blank template (`docs/template.md`)
-        - Severity / when-to-write (`docs/severity.md`)
+        - Severity (`docs/severity.md`)
+        - When to write (`docs/when-to-write.md`)
         - Fictional example
         - README map
         - House style (AGENTS.md, CONTRIBUTING, GitHub templates)

@@ -12,7 +12,11 @@ Paths and commands in English fences:
 
 ```bash
 test "$(wc -l < AGENTS.md)" -le 80
-ls LICENSE CONTRIBUTING.md docs/template.md docs/severity.md docs/example-short-spike.md
+python3 scripts/check-required-headings.py
+python3 scripts/check-md-links.py
+ls LICENSE CONTRIBUTING.md docs/template.md docs/severity.md \
+  docs/when-to-write.md docs/example-checkout-latency.md \
+  docs/example-short-spike.md docs/references.md llms.txt
 ```
 
 ## Guardrails
@@ -20,5 +24,5 @@ ls LICENSE CONTRIBUTING.md docs/template.md docs/severity.md docs/example-short-
 - [ ] README stays a map (no `## Purpose` / `## Propósito`)
 - [ ] Template sections are not renamed or dropped
 - [ ] Sev (impact) and P (action urgency) stay distinct
-- [ ] Examples stay fully fictional — no firm IP, real IDs, or wiki paste
+- [ ] Examples stay fully fictional: no firm IP, real IDs, or wiki paste
 - [ ] `AGENTS.md` is still ≤80 lines and remains the agent source of truth
