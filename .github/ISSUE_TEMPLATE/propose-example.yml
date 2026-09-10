@@ -16,7 +16,9 @@ body:
       options:
         - Fix the existing short-spike example
         - Fix the checkout-latency example
+        - Fix the silent-push webhook composite
         - New fictional example (different failure class)
+        - New anonymized composite (labeled; not a company incident)
     validations:
       required: true
   - type: textarea

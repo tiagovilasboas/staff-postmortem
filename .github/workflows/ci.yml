@@ -18,9 +18,12 @@ jobs:
         run: |
           ls LICENSE CONTRIBUTING.md AGENTS.md README.md llms.txt \
             docs/template.md docs/severity.md docs/when-to-write.md \
+            docs/facilitation.md \
             docs/example-short-spike.md docs/example-checkout-latency.md \
+            docs/examples/README.md docs/examples/silent-push-webhook.md \
             docs/references.md \
             scripts/check-required-headings.py \
+            scripts/check-related-link.py \
             .github/PULL_REQUEST_TEMPLATE.md \
             .github/ISSUE_TEMPLATE/improve-template.yml \
             .github/ISSUE_TEMPLATE/propose-example.yml
@@ -33,6 +36,9 @@ jobs:
 
       - name: Required headings in template and examples
         run: python3 scripts/check-required-headings.py
+
+      - name: Required Related link to staff-impact-cases
+        run: python3 scripts/check-related-link.py
 
       - name: Relative markdown links exist
         run: python3 scripts/check-md-links.py

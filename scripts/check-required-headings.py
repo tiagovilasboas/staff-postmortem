@@ -21,11 +21,21 @@ REQUIRED: list[str] = [
     "## Conclusion Q&A",
 ]
 
-TARGETS: list[str] = [
+FIXED_TARGETS: list[str] = [
     "docs/template.md",
     "docs/example-checkout-latency.md",
     "docs/example-short-spike.md",
 ]
+
+
+def example_targets(root: str) -> list[str]:
+    targets = list(FIXED_TARGETS)
+    examples_dir = os.path.join(root, "docs", "examples")
+    if os.path.isdir(examples_dir):
+        for name in sorted(os.listdir(examples_dir)):
+            if name.endswith(".md") and name.lower() != "readme.md":
+                targets.append(os.path.join("docs", "examples", name))
+    return targets
 
 
 def h2_headings(text: str) -> list[str]:
@@ -44,7 +54,7 @@ def is_subsequence(required: list[str], found: list[str]) -> bool:
 def main() -> int:
     root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     failed = 0
-    for rel in TARGETS:
+    for rel in example_targets(root):
         path = os.path.join(root, rel)
         if not os.path.isfile(path):
             print(f"missing file: {rel}")

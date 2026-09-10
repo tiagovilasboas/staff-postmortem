@@ -19,6 +19,8 @@ body:
         - Severity (`docs/severity.md`)
         - When to write (`docs/when-to-write.md`)
         - Fictional example
+        - Anonymized composite (`docs/examples/`)
+        - Facilitation (`docs/facilitation.md`)
         - README map
         - House style (AGENTS.md, CONTRIBUTING, GitHub templates)
     validations:
