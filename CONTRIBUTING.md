@@ -8,8 +8,11 @@ Contributing language for this file, issue forms, and pull requests is **English
 docs/template.md
 docs/severity.md
 docs/when-to-write.md
+docs/facilitation.md
 docs/example-checkout-latency.md
 docs/example-short-spike.md
+docs/examples/README.md
+docs/examples/silent-push-webhook.md
 docs/references.md
 llms.txt
 ```
@@ -20,7 +23,7 @@ Propose changes through issues and pull requests. Do not commit to `main`.
 
 - Clearer prompts in the blank template (one extra row, one missing question, not a new framework).
 - Sharper Sev / P guidance, including when a formal write-up is skippable.
-- Fictional worked examples that teach a distinction (spike vs outage, primary vs latent, constraint vs decision).
+- Worked examples that teach a distinction (spike vs outage, primary vs latent, constraint vs decision): Harborlot fiction or a labeled anonymized composite.
 
 This repo is **not** a company playbook, an observability vendor SDK, or a dump of real tickets. Do not add Datadog JSON, PagerDuty service IDs, or internal wiki paste.
 
@@ -51,13 +54,16 @@ Do not rename sections for house style. Callers and CI grep these headings (`scr
 
 ## How to change severity or the write gate
 
-`docs/severity.md` owns Sev (incident impact) and P (action urgency). `docs/when-to-write.md` owns the artifact gate (threshold, skip, 48-hour draft). If you change a gate, update both examples so the docs still agree.
+`docs/severity.md` owns Sev (incident impact) and P (action urgency). `docs/when-to-write.md` owns the artifact gate (threshold, skip, 48-hour draft). If you change a gate, update the Harborlot fills and the composite so the docs still agree.
 
 ## How to add or edit an example
 
-Examples must be **fully fictional**. Allowed: invented marketplace names, generic services (`payments-api`, `checkout-api`, `pricing-service`). Forbidden: real employers, real users, real monitor IDs, production SQL, copy from any company wiki.
+Two kinds. See [`docs/examples/README.md`](docs/examples/README.md).
 
-Label the file as fictional in the first paragraph. Teach at least one distinction (spike vs outage, primary vs latent, or constraint vs decision). Dense examples need a before/after table with labeled columns (Result / Target / Qualitative).
+- **Fiction:** invented marketplace (Harborlot), generic services (`payments-api`, `checkout-api`). Label fictional in the first paragraph.
+- **Anonymized composite:** real-shaped class (silent push, webhook) under `docs/examples/`. Line one must say it is **not** a public company incident and **not** a named employer.
+
+Forbidden in both: real employers, real users, real monitor IDs, production SQL, copy from any company wiki. Teach at least one distinction. Dense fills need a before/after table (Result / Target / Qualitative).
 
 ## Pull requests
 
@@ -68,10 +74,13 @@ Label the file as fictional in the first paragraph. Teach at least one distincti
 ```bash
 test "$(wc -l < AGENTS.md)" -le 80
 python3 scripts/check-required-headings.py
+python3 scripts/check-related-link.py
 python3 scripts/check-md-links.py
 ls LICENSE CONTRIBUTING.md docs/template.md docs/severity.md \
-  docs/when-to-write.md docs/example-checkout-latency.md \
-  docs/example-short-spike.md docs/references.md llms.txt
+  docs/when-to-write.md docs/facilitation.md \
+  docs/example-checkout-latency.md docs/example-short-spike.md \
+  docs/examples/README.md docs/examples/silent-push-webhook.md \
+  docs/references.md llms.txt
 ```
 
 ## Principles (do / don't)
@@ -88,7 +97,7 @@ ls LICENSE CONTRIBUTING.md docs/template.md docs/severity.md \
 
 - Mix Sev and P.
 - Add a Purpose / Propósito section to the README.
-- Paste firm IP or a real incident, even "anonymized" if the IDs are still real.
+- Paste firm IP or a real incident. A composite is allowed only when IDs are invented and the file says so.
 - Grow a manifesto. KISS / YAGNI: one extra sentence that a reviewer can use, or delete it.
 
 ## License

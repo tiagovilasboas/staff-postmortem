@@ -26,7 +26,7 @@ A 90-second canary blip with zero user errors and no latent finding is a ticket.
 
 Borderline Sev3: if the only learning is "vendor blipped and we waited", a ticket is enough. If the learning is "our client turned a 2-minute vendor 502 into a 15-minute retry storm", write the post-mortem. The minutes are not the point.
 
-Worked cases (fictional): [`example-checkout-latency.md`](example-checkout-latency.md) (write; core path + latent), [`example-short-spike.md`](example-short-spike.md) (write short; latent retry).
+Worked cases: [`example-checkout-latency.md`](example-checkout-latency.md) (fiction; write), [`example-short-spike.md`](example-short-spike.md) (fiction; write short), [`examples/silent-push-webhook.md`](examples/silent-push-webhook.md) (anonymized composite; write for the silent class). Index: [`examples/README.md`](examples/README.md).
 
 ## 48-hour draft
 
